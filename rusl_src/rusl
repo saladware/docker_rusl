@@ -1,0 +1,35 @@
+#!/bin/sh
+
+if [[ "$RUSL_PATH" == "" ]]; then
+    echo 'Ошибка! Переменная окружения RUSL_PATH не определена'
+    exit 1
+fi
+
+
+if [[ "$1" == "-v" ]] || [[ "$1" == "--версия" ]]; then
+    echo "b2.0.3.02";
+
+elif [[ "$1" == "--помощь" ]] || [[ "$1" == "--help" ]]  || [[ "$1" == "" ]]; then
+    if [[ "$2" == "--en" ]]; then
+        echo "Use \"rusl\" and file name to execute a prorgamm"
+        echo "Commands list:"
+        echo "rusl -v           current RuSL version"
+        echo "rusl --path       RuSL folder"
+        echo "rusl --update     install latest RuSL version"
+    else
+        echo "Используйте ключевое слово \"rusl\" или \"ряс\", а вторым аргументом имя файла для вызова компилятора"
+	    echo "Список основных команд:"
+	    echo "ряс --версия      текущая версия RuSL"
+	    echo "ряс --путь        расположение папки с RuSL"
+	    echo "ряс --обновить    обновляет язык до последней версии"
+    fi
+
+elif [[ "$1" == "--path" ]] || [[ "$1" == "--путь" ]]; then
+    echo $RUSL_PATH
+    
+elif [[ "$1" == "--обновить" ]] || [[ "$1" == "--update" ]]; then
+    "node" "${RUSL_PATH}index.js" "--update" "$pwd"
+
+else
+    "node" "${RUSL_PATH}index.js" "$1" "$pwd"
+fi
