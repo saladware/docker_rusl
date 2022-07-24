@@ -12,7 +12,7 @@
 
 1. Установите официальную версию Docker для своей операционной системы [по ссылке](https://docs.docker.com/get-docker/)
 2. Создайте `Dockerfile` в директории вашего проекта
-```docker
+```dockerfile
 FROM salad37/rusl
 
 COPY best_program.rusl best_program.rusl
@@ -20,12 +20,12 @@ COPY best_program.rusl best_program.rusl
 CMD ["rusl", "best_program.rusl"]
 ```
 3. Соберите образ вашего проекта
-```bash
-docker build . -t my_project
+```console
+$ docker build . -t my_project
 ```
 4. Запустите контейнер из своего образа!
 ```
-docker run --rm my_project
+$ docker run --rm my_project
 ```
 
 ## Варианты образа
