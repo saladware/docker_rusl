@@ -1,6 +1,6 @@
 ## Ресурсы
 + [Официальный сайт языка RuSL](https://russlang.ru/)
-+ [Github репозиторий Docker контейнера]()
++ [Github репозиторий Docker контейнера](https://github.com/saladware/docker_rusl/)
 
 ## Что такое RuSL?
 
